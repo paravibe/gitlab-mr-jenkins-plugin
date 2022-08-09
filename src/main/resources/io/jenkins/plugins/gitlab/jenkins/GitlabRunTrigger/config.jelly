@@ -1,0 +1,53 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <f:entry title="${%Accept Merge Request Hook}" field="acceptMergeRequestHook">
+        <f:checkbox default="true"/>
+    </f:entry>
+    <f:entry title="${%Accept Note Hook}" field="acceptNoteHook">
+        <f:checkbox default="true"/>
+    </f:entry>
+    <f:entry title="${%Assignee filter}" field="assigneeFilter">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="${%Source branch filter}" field="sourceBranchFilter">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="${%Target branch filter}" field="targetBranchFilter">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="${%Labels filter}" field="labelsFilter">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="${%Comment to trigger a rebuild}" field="rebuildComment">
+        <f:textbox default="rebuild"/>
+    </f:entry>
+    <f:entry title="${%Ignore Draft Merge Requests}" field="skipDraftMergeRequests">
+        <f:checkbox default="true"/>
+    </f:entry>
+    <f:entry title="${%Pipeline name}" field="pipelineName">
+        <f:textbox default="Jenkins"/>
+    </f:entry>
+    <f:entry title="${%Scheduled message}" field="messageScheduled">
+        <f:textbox default="SCHEDULED!"/>
+    </f:entry>
+    <f:optionalBlock title="${%Publish build messages}" field="publishBuildMessagesOn" checked="${instance.publishBuildMessagesOn}" inline="true">
+        <f:entry title="${%Started message}" field="messageStarted">
+            <f:textbox default="STARTED BUILD #$BUILD_NUMBER"/>
+        </f:entry>
+        <f:entry title="${%Success message}" field="messageSuccess">
+            <f:textbox default="SUCCESS #$BUILD_NUMBER"/>
+        </f:entry>
+        <f:entry title="${%Unstable message}" field="messageUnstable">
+            <f:textbox default="UNSTABLE #$BUILD_NUMBER"/>
+        </f:entry>
+        <f:entry title="${%Failure message}" field="messageFailure">
+            <f:textbox default="FAILED #$BUILD_NUMBER"/>
+        </f:entry>
+        <f:entry title="${%Aborted message}" field="messageAborted">
+            <f:textbox default="ABORTED #$BUILD_NUMBER"/>
+        </f:entry>
+        <f:entry title="${%Append job URL to the message}" field="messageAppendUrl">
+            <f:checkbox default="true"/>
+        </f:entry>
+    </f:optionalBlock>
+</j:jelly>
