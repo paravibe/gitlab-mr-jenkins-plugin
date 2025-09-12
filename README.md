@@ -23,3 +23,10 @@ gitlabMergeRequestUserUsername
 gitlabMergeRequestAuthorUsername
 gitlabJobPipelineName
 ```
+
+## Develop
+
+`mvn hpi:run` - run local instance of Jenkins with plugin
+http://localhost:8080/jenkins/
+
+`mvn install` - build and run tests

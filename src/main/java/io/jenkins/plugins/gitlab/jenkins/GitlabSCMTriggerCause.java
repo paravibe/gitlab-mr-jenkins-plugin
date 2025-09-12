@@ -10,6 +10,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class GitlabSCMTriggerCause extends SCMTrigger.SCMTriggerCause {
     private final CauseData data;
 
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public GitlabSCMTriggerCause(CauseData data) {
         super("");
 

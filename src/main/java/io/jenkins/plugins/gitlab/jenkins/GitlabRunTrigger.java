@@ -163,7 +163,7 @@ public class GitlabRunTrigger extends Trigger<Job<?, ?>> {
 
         if (job instanceof ParameterizedJobMixIn.ParameterizedJob) {
             ParameterizedJobMixIn.ParameterizedJob p = (ParameterizedJobMixIn.ParameterizedJob) job;
-            Collection<Trigger> triggerList = p.getTriggers().values();
+            Collection<Trigger<?>> triggerList = p.getTriggers().values();
 
             for (Trigger t : triggerList) {
                 if (t instanceof GitlabRunTrigger) {

@@ -200,7 +200,7 @@ public abstract class RequestHook {
 
             // Post comment with a status.
             if (message != null && !message.equals("")) {
-                client.api.getNotesApi().createMergeRequestNote(projectIdLong, Long.parseLong(String.valueOf(mrData.iid)), message);
+                client.api.getNotesApi().createMergeRequestNote(projectIdLong, Long.parseLong(String.valueOf(mrData.iid)), message, null, false);
             }
 
             // Set pipeline status.

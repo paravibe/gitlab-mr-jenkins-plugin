@@ -9,8 +9,13 @@ public class GitlabApiClient {
 
     public GitlabApiClient() {
         GitlabGlobalConfiguration config = (GitlabGlobalConfiguration) Jenkins.get().getDescriptor(GitlabGlobalConfiguration.class);
-        String hostUrl = config.getGitlabHostUrl();
-        String apiToken = config.getToken();
+        String hostUrl = null;
+        String apiToken = null;
+
+        if (config != null) {
+            hostUrl = config.getGitlabHostUrl();
+            apiToken = config.getToken();
+        }
 
         this.api = new GitLabApi(hostUrl, apiToken);
     }

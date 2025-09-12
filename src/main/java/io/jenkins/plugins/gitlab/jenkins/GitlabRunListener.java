@@ -122,7 +122,7 @@ public class GitlabRunListener extends RunListener<Run<?, ?>> {
 
             // Post comment with a status.
             if (!message.isEmpty()) {
-                client.api.getNotesApi().createMergeRequestNote(projectIdLong, Long.parseLong(String.valueOf(mrId)), message);
+                client.api.getNotesApi().createMergeRequestNote(projectIdLong, Long.parseLong(String.valueOf(mrId)), message, null, false);
             }
 
             // Set pipeline status.
