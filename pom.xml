@@ -33,12 +33,12 @@
         <url>https://github.com/${gitHubRepo}</url>
     </scm>
     <properties>
-        <revision>1.1.0</revision>
+        <revision>1.1.1</revision>
         <changelist>-SNAPSHOT</changelist>
 
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-        <jenkins.baseline>2.516</jenkins.baseline>
-        <jenkins.version>${jenkins.baseline}.1</jenkins.version>
+        <jenkins.baseline>2.528</jenkins.baseline>
+        <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
 
@@ -48,7 +48,7 @@
                 <!-- Pick up common dependencies for the selected LTS line: https://github.com/jenkinsci/bom#usage -->
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-${jenkins.baseline}.x</artifactId>
-                <version>5353.v3dec76e40169</version>
+                <version>6040.v20da_0b_1245d3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
-            <version>6.1.0</version>
+            <version>6.2.0</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.40</version>
+            <version>1.18.42</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

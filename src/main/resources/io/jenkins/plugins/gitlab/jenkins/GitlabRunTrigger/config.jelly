@@ -28,23 +28,23 @@
         <f:textbox default="Jenkins"/>
     </f:entry>
     <f:entry title="${%Scheduled message}" field="messageScheduled">
-        <f:textbox default="SCHEDULED!"/>
+        <f:textbox default="SCHEDULED :rocket:"/>
     </f:entry>
     <f:optionalBlock title="${%Publish build messages}" field="publishBuildMessagesOn" checked="${instance.publishBuildMessagesOn}" inline="true">
         <f:entry title="${%Started message}" field="messageStarted">
-            <f:textbox default="STARTED BUILD #$BUILD_NUMBER"/>
+            <f:textbox default="STARTED BUILD `$gitlabJobPipelineName` :airplane_departure: "/>
         </f:entry>
         <f:entry title="${%Success message}" field="messageSuccess">
-            <f:textbox default="SUCCESS #$BUILD_NUMBER"/>
+            <f:textbox default="@$gitlabMergeRequestAuthorUsername SUCCESS `$gitlabJobPipelineName` :thumbsup: "/>
         </f:entry>
         <f:entry title="${%Unstable message}" field="messageUnstable">
-            <f:textbox default="UNSTABLE #$BUILD_NUMBER"/>
+            <f:textbox default="@$gitlabMergeRequestAuthorUsername UNSTABLE `$gitlabJobPipelineName` :warning: "/>
         </f:entry>
         <f:entry title="${%Failure message}" field="messageFailure">
-            <f:textbox default="FAILED #$BUILD_NUMBER"/>
+            <f:textbox default="@$gitlabMergeRequestAuthorUsername FAILED `$gitlabJobPipelineName` :warning: "/>
         </f:entry>
         <f:entry title="${%Aborted message}" field="messageAborted">
-            <f:textbox default="ABORTED #$BUILD_NUMBER"/>
+            <f:textbox default="@$gitlabMergeRequestAuthorUsername ABORTED `$gitlabJobPipelineName` :stop_button:"/>
         </f:entry>
         <f:entry title="${%Append job URL to the message}" field="messageAppendUrl">
             <f:checkbox default="true"/>

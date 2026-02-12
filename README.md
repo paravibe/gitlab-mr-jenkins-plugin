@@ -30,3 +30,5 @@ gitlabJobPipelineName
 http://localhost:8080/jenkins/
 
 `mvn install` - build and run tests
+
+`docker exec -it mvn mvn hpi:run -Dhost=0.0.0.0`

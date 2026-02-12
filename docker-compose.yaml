@@ -1,0 +1,13 @@
+name: gitlabmr
+services:
+  mvn:
+    container_name: mvn
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
+      - .m2:/root/.m2

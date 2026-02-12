@@ -74,32 +74,38 @@ public class GitlabRunListener extends RunListener<Run<?, ?>> {
             return;
         }
 
-        String url = Jenkins.get().getRootUrl() + build.getUrl();
+        String url = Jenkins.get().getRootUrl();
+        if (url != null && !url.endsWith("/")) {
+            url += "/";
+        }
+        url += build.getUrl();
         Integer buildNumber = build.getNumber();
         String message = "";
         Constants.CommitBuildState buildState = Constants.CommitBuildState.RUNNING;
+        Result result = build.getResult();
 
         if (trigger.getPublishBuildMessagesOn()) {
-            if (build.getResult() == Result.SUCCESS) {
+            if (result == Result.SUCCESS) {
                 message = trigger.getMessageSuccess() != null ? trigger.getMessageSuccess() : null;
             }
-            else if (build.getResult() == Result.UNSTABLE) {
+            else if (result == Result.UNSTABLE) {
                 message = trigger.getMessageUnstable() != null ? trigger.getMessageUnstable() : null;
             }
-            else if (build.getResult() == Result.FAILURE) {
+            else if (result == Result.FAILURE) {
                 message = trigger.getMessageFailure() != null ? trigger.getMessageFailure() : null;
             }
-            else if (build.getResult() == Result.ABORTED) {
+            else if (result == Result.ABORTED) {
                 message = trigger.getMessageAborted() != null ? trigger.getMessageAborted() : null;
             }
-            else if (build.getResult() == null && status == 0) {
+            else if (result == null && status == 0) {
                 message = trigger.getMessageStarted() != null ? trigger.getMessageStarted() : null;
             }
 
             assert message != null;
             if (!message.isEmpty()) {
                 if (trigger.getMessageAppendUrl()) {
-                    message += " " + url + "console";
+                    String consoleUrl = url + (url.endsWith("/") ? "console" : "/console");
+                    message += " " + consoleUrl;
                 }
 
                 // Replace env variables.
