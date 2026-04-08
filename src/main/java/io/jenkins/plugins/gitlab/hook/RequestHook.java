@@ -55,6 +55,7 @@ public abstract class RequestHook {
             }
         }
 
+        LOGGER.log(Level.INFO, "Scheduling MR: " + data.iid);
         retrieveScheduleJob(job).scheduleBuild2(projectBuildDelay, createActions(data));
         updateMergeRequest(data);
     }

@@ -26,9 +26,7 @@ gitlabJobPipelineName
 
 ## Develop
 
-`mvn hpi:run` - run local instance of Jenkins with plugin
+`docker exec -it mvn mvn hpi:run -Dhost=0.0.0.0` - run local instance of Jenkins with plugin
 http://localhost:8080/jenkins/
 
-`mvn install` - build and run tests
-
-`docker exec -it mvn mvn hpi:run -Dhost=0.0.0.0`
+`docker exec -it mvn mvn install` - build and run tests
